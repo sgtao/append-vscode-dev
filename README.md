@@ -1,4 +1,4 @@
-# append-vscode-dev
+# convert-URL-to-vscode-dev
 - githubのレポジトリURLを入力したら、vscode-devサイトへのリンクを表示するコンテンツ
 
 ## 参考サイト
