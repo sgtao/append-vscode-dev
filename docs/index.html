@@ -12,6 +12,9 @@
 <div class="container">
     <header>
         <h1>convert-URL-to-vscode-dev</h1>
+        <p>
+            githubのレポジトリURLを入力したら、vscode-devサイトへのリンクを表示します。
+        </p>
     </header>
     <main>
         <Forms>
@@ -20,9 +23,10 @@
                 <input type="text" id="sampleUserInput" value="レポジトリのURLを入力">
                 <input type="button" value="vscode-devへ変換" onclick="convertToVScodeDev.convert();">
             </p>
+            <p>例：https://github.com/sgtao/convert-url-to-vscodedev</p>
         </Forms>
         <div class="convertResults">
-            ◆文字列リスト(Read Only)：
+            ◆変換URL：
             <p>
                 <pre id="resultTextArea">
                 </pre>        
@@ -30,7 +34,7 @@
         </div>
     </main>
     <footer>
-        reference : vscode.dev
+        reference : <a href="https://vscode.dev/" target="_blank">vscode.dev</a>
     </footer>
     <script src="scripts/convertToVScodeDev.js"></script>
 </div>    

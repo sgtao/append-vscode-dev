@@ -20,8 +20,9 @@ const convertToVScodeDev = (() => {
             if (projectHostname.indexOf('https://github.com') === -1) {
                 devItem.path = inputProjectURL.pathname;
                 console.log(devItem);
-                resultTextArea.textContent = `${devItem.name}\npath : ${devItem.path};\n`;
-                resultTextArea.textContent += "URL : " + devItem.url + "github.com" + devItem.path;
+                let vscodeURL = devItem.url + "github.com" + devItem.path;
+                resultTextArea.innerHTML = `<p>${devItem.name}</p><p>path : ${devItem.path};</p>`;
+                resultTextArea.innerHTML += `<p>URL : <a href="${vscodeURL}" target="_blank">${vscodeURL}</a></p>`;
             } else {
                 resultTextArea.textContent = "githubのレポジトリURLを入力してください";
             }
