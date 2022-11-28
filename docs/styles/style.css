@@ -1,0 +1,20 @@
+/* style.css */
+body {
+    font-family: "Kameron", "Noto Sans JP", Arial, Helvetica, sans-serif;
+}
+#container {
+    position: relative;
+    background-color: white;
+    width: 80%;
+    margin: 0 auto;
+}
+header {
+    border-bottom: 1px solid gray;
+}
+main {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+footer {
+    border-top: 1px solid gray;
+}
