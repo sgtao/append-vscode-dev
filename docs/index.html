@@ -17,14 +17,14 @@
         </p>
     </header>
     <main>
-        <Forms>
-            ◆ユーザの入力欄：
+        ◆レポジトリのURLからvscode-devのURLへ変換します：
+        <form>
             <p>
-                <input type="text" id="sampleUserInput" value="レポジトリのURLを入力">
-                <input type="button" value="vscode-devへ変換" onclick="convertToVScodeDev.convert();">
+                <input type="text" id="sampleUserInput" placeholder="レポジトリのURLを入力">
+                <input type="button" class="convert-btn" value="変換" onclick="convertToVScodeDev.convert();">
             </p>
-            <p>例：https://github.com/sgtao/convert-url-to-vscodedev</p>
-        </Forms>
+            <p>例：<span>https://github.com/sgtao/convert-url-to-vscodedev</span></p>
+        </form>
         <div class="convertResults">
             ◆変換URL：
             <p id="resultTextArea">
