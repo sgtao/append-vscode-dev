@@ -6,13 +6,14 @@ const convertToVScodeDev = (() => {
     const resultTextArea = document.querySelector("#resultTextArea");
     const devItem = {
         name : "vscode-dev",
-        url  : "https://vscode.dev/",
+        url  : "https://vscode.dev",
         path : "/",
         label: "Visual Studio Code",
     }
     const githubInfo = {
         user: '',
         project: '',
+        hostname: '',
         email: '',
         avatar_url: '',
         name: '',
@@ -22,9 +23,9 @@ const convertToVScodeDev = (() => {
         let keys = Object.keys(githubInfo)
         keys.forEach((key) => githubInfo[key] = '');
     };
-    const convert = () => {
+    const convert = async () => {
         console.log(inputUserValue.value);
-        init_githubInfo();
+        await init_githubInfo();
         resultTextArea.textContent = "";
         let inputProjectURL = new URL(inputUserValue.value);
         console.log(inputProjectURL);
@@ -32,20 +33,23 @@ const convertToVScodeDev = (() => {
         if (inputProjectURL.origin === 'https://github.com') {
             devItem.path = inputProjectURL.pathname;
             console.log(devItem);
-            get_githubapi(inputUserValue.value);
-            let vscodeURL = devItem.url + "github.com" + devItem.path;
-            resultTextArea.innerHTML = `<p>${devItem.name}</p><p>path : ${devItem.path};</p>`;
-            resultTextArea.innerHTML += `<p>URL : <a href="${vscodeURL}" target="_blank">${vscodeURL}</a></p>`;
+            await getGithubInfo(inputUserValue.value);
+            {
+                let keys = Object.keys(githubInfo)
+                keys.forEach((key) => console.log(`${key} : ${githubInfo[key]}`));
+            }
+            await insertResultTextArea(devItem);
         } else {
             resultTextArea.textContent = "githubのレポジトリURLを入力してください";
         }
     };
-    const get_githubapi = (inputUserValue) => {
+    const getGithubInfo = async (inputUserValue) => {
         console.log('inputUserValue: ' + inputUserValue);
         inputUserValue.split('/').map((path, index)=>{
             switch(index) {
                 case 2:
                     console.log(path);
+                    githubInfo.hostname = path;
                     break;
                 case 3:
                     console.log(path);
@@ -59,11 +63,11 @@ const convertToVScodeDev = (() => {
         });
         let githubaUserURL = 'https://api.github.com/users/' + githubInfo.user;
         // GETリクエスト（通信）
-        axios.get(githubaUserURL)
+        await axios.get(githubaUserURL)
 
             // thenで成功した場合の処理
             .then((res) => {
-                console.log(res.data);
+                console.dir(res.data);
                 githubInfo.email = res.data.email;
                 githubInfo.name  = res.data.name;
                 githubInfo.repos_url  = res.data.repos_url;
@@ -91,7 +95,18 @@ const convertToVScodeDev = (() => {
                 }
                 console.log(error.config);
             });
-    }
+    };
+    const insertResultTextArea = (devItem) => {
+        resultTextArea.innerHTML = '';
+        let vscodeURL = devItem.url + '/' +
+                        githubInfo.hostname + '/' +
+                        githubInfo.user + '/' +
+                        githubInfo.project + '/';
+        resultTextArea.innerHTML += `<p>${devItem.label}</p>`;
+        resultTextArea.innerHTML += `<p>user : ${githubInfo.user}(${githubInfo.name}, ${githubInfo.email})</p>`;
+        resultTextArea.innerHTML += `<p>project : ${githubInfo.project}</p>`;
+        resultTextArea.innerHTML += `<p>　URL : <a href="${vscodeURL}" target="_blank">${vscodeURL}</a></p>`;
+    };
     return {
         convert
     };
