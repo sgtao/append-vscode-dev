@@ -38,7 +38,6 @@ const convertToVScodeDev = (() => {
                 let keys = Object.keys(githubInfo)
                 keys.forEach((key) => console.log(`${key} : ${githubInfo[key]}`));
             }
-            await insertResultTextArea(devItem);
         } else {
             resultTextArea.textContent = "githubのレポジトリURLを入力してください";
         }
@@ -62,6 +61,7 @@ const convertToVScodeDev = (() => {
             }
         });
         let githubaUserURL = 'https://api.github.com/users/' + githubInfo.user;
+        resultTextArea.innerHTML = '';
         // GETリクエスト（通信）
         await axios.get(githubaUserURL)
 
@@ -72,6 +72,7 @@ const convertToVScodeDev = (() => {
                 githubInfo.name  = res.data.name;
                 githubInfo.repos_url  = res.data.repos_url;
                 githubInfo.avatar_url = res.data.avatar_url;
+                insertResultTextArea(devItem);
             })
             // catchでエラー時の挙動を定義
             .catch(error => {
@@ -97,14 +98,14 @@ const convertToVScodeDev = (() => {
             });
     };
     const insertResultTextArea = (devItem) => {
-        resultTextArea.innerHTML = '';
         let vscodeURL = devItem.url + '/' +
                         githubInfo.hostname + '/' +
                         githubInfo.user + '/' +
                         githubInfo.project + '/';
         resultTextArea.innerHTML += `<p>user : ${githubInfo.user}(${githubInfo.name}, ${githubInfo.email})</p>`;
         resultTextArea.innerHTML += `<p>project : ${githubInfo.project}</p>`;
-        resultTextArea.innerHTML += `<p>　URL : <a href="${vscodeURL}" target="_blank" title="${vscodeURL}">
+        resultTextArea.innerHTML += `<p>URL : <a href="${vscodeURL}" target="_blank" class="tooltip">
+                                    <span class="tooltip-text">${vscodeURL}</span>
                                     ${devItem.label}</a></p>`;
     };
     return {
