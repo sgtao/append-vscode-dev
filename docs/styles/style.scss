@@ -1,6 +1,10 @@
 /* style.css */
 body {
     font-family: "Kameron", "Noto Sans JP", Arial, Helvetica, sans-serif;
+    height: 100vh;
+    background-image: url(../images/publicdomainq-0008410bvjjot.png);
+    background-repeat:no-repeat;
+    background-size:cover;
 }
 #container {
     position: relative;
@@ -12,17 +16,36 @@ body {
         border-bottom: 1px solid gray;
     }
     main {
+        height: 300px;
+        background-color:#ffffff;
+        opacity: 0.7;
         margin-top: 2rem;
         margin-bottom: 2rem;
-        form .convert-btn {
-            height: 3rem;
-            border-radius: 50%;
-            background-color: white;
-            transition: background-color ease 0.3s;
-        }
-        form .convert-btn:hover {
-            background-color: lightgray;
-            cursor: pointer;
+        border-radius: 0.5rem;
+        form {
+            min-width: 90%;
+            max-width: 50rem;
+            margin-left: 2rem;
+            .user-input {
+                width: 40rem;
+                min-width: 90%;
+                height: 3rem;
+                --inline-height: 3rem;
+                padding-inline-start: 1.5rem;
+                padding-inline-end: 1.5rem;
+                border: 2px solid black;
+                border-radius: calc(0.2 * var(--inline-height));
+            }
+            .convert-btn {
+                height: 3rem;
+                border-radius: 50%;
+                background-color: white;
+                transition: background-color ease 0.3s;
+            }
+            .convert-btn:hover {
+                background-color: lightgray;
+                cursor: pointer;
+            }
         }
         a { 
             font-weight:bold; 
@@ -66,17 +89,17 @@ body {
                 border-bottom: 7px solid #333;
             }
         }
+        .result-textarea {
+            min-width: 90%;
+            max-width: 50rem;
+            margin-left: 2rem;
+        }
     }
     footer {
         border-top: 1px solid gray;
     }
-}
-#sampleUserInput {
-    width: 40rem;
-    height: 3rem;
-    --inline-height: 3rem;
-    padding-inline-start: 1.5rem;
-    padding-inline-end: 1.5rem;
-    border: 2px solid black;
-    border-radius: calc(0.5 * var(--inline-height));
+    header, footer {
+        color: white;
+        font-weight: bold;
+    }
 }

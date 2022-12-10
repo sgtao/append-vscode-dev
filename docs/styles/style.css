@@ -1,6 +1,10 @@
 /* style.css */
 body {
   font-family: "Kameron", "Noto Sans JP", Arial, Helvetica, sans-serif;
+  height: 100vh;
+  background-image: url(../images/publicdomainq-0008410bvjjot.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #container {
@@ -14,8 +18,29 @@ body {
   border-bottom: 1px solid gray;
 }
 #container main {
+  height: 300px;
+  background-color: #ffffff;
+  opacity: 0.7;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  border-radius: 0.5rem;
+}
+#container main form {
+  min-width: 90%;
+  max-width: 50rem;
+  margin-left: 2rem;
+}
+#container main form .user-input {
+  width: 40rem;
+  min-width: 90%;
+  height: 3rem;
+  --inline-height: 3rem;
+  -webkit-padding-start: 1.5rem;
+          padding-inline-start: 1.5rem;
+  -webkit-padding-end: 1.5rem;
+          padding-inline-end: 1.5rem;
+  border: 2px solid black;
+  border-radius: calc(0.2 * var(--inline-height));
 }
 #container main form .convert-btn {
   height: 3rem;
@@ -75,18 +100,15 @@ body {
   border: 7px solid transparent;
   border-bottom: 7px solid #333;
 }
+#container main .result-textarea {
+  min-width: 90%;
+  max-width: 50rem;
+  margin-left: 2rem;
+}
 #container footer {
   border-top: 1px solid gray;
 }
-
-#sampleUserInput {
-  width: 40rem;
-  height: 3rem;
-  --inline-height: 3rem;
-  -webkit-padding-start: 1.5rem;
-          padding-inline-start: 1.5rem;
-  -webkit-padding-end: 1.5rem;
-          padding-inline-end: 1.5rem;
-  border: 2px solid black;
-  border-radius: calc(0.5 * var(--inline-height));
+#container header, #container footer {
+  color: white;
+  font-weight: bold;
 }/*# sourceMappingURL=style.css.map */
