@@ -1,0 +1,25 @@
+{
+  "name": "convert-url-to-vscodedev",
+  "version": "1.0.0",
+  "description": "githubのレポジトリURLを入力したら、vscode-devサイトへのリンクを表示するコンテンツ",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "serve": "http-server docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sgtao/convert-url-to-vscodedev.git"
+  },
+  "author": "sg.tao.so@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sgtao/convert-url-to-vscodedev/issues"
+  },
+  "homepage": "https://github.com/sgtao/convert-url-to-vscodedev#readme",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
