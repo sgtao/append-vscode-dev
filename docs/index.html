@@ -22,8 +22,9 @@
         ◆レポジトリのURLからvscode-devのURLへ変換します：
         <form>
             <div class="form-ctrl">
-                <input type="text" class="user-input" id="sampleUserInput" placeholder="レポジトリのURLを入力">
-                <input type="button" class="convert-btn" value="変換" onclick="convertToVScodeDev.convert();">
+                <input type="text" class="user-input" id="sampleUserInput" placeholder="レポジトリのURLを入力" />
+                <input type="button" class="delete-btn" value="×" onclick="convertToVScodeDev.deleteUserInput();" />
+                <input type="button" class="convert-btn" value="変換" onclick="convertToVScodeDev.convert();" />
             </div>
             <p>例：<span>https://github.com/sgtao/convert-url-to-vscodedev</span></p>
         </form>

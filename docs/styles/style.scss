@@ -44,6 +44,17 @@ body {
                     margin: .5rem auto;
                     border: 0;
                 }
+                .delete-btn {
+                    background-color: inherit;
+                    color: gray;
+                    font-size: 2rem;
+                    border: 0;
+                    &:hover {
+                        color: rgb(80, 80, 80);
+                        font-weight: bold;
+                        cursor: pointer;
+                    }
+                }
                 .convert-btn {
                     height: 3rem;
                     background-color: #aaffaa;

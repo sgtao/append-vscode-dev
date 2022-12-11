@@ -23,6 +23,9 @@ const convertToVScodeDev = (() => {
         let keys = Object.keys(githubInfo)
         keys.forEach((key) => githubInfo[key] = '');
     };
+    const deleteUserInput = () => {
+        inputUserValue.value = "";
+    }
     const convert = async () => {
         console.log(inputUserValue.value);
         await init_githubInfo();
@@ -109,7 +112,7 @@ const convertToVScodeDev = (() => {
                                     ${devItem.label}</a></p>`;
     };
     return {
-        convert
+        deleteUserInput, convert,
     };
 })();
 //
