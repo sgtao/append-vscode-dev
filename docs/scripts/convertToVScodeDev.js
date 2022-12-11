@@ -29,6 +29,11 @@ const convertToVScodeDev = (() => {
     const convert = async () => {
         console.log(inputUserValue.value);
         await init_githubInfo();
+        // no input return early.
+        if (! inputUserValue.value) {
+            resultTextArea.textContent = "githubのレポジトリURLを入力してください";
+            return;
+        }
         resultTextArea.textContent = "";
         let inputProjectURL = new URL(inputUserValue.value);
         console.log(inputProjectURL);
