@@ -30,7 +30,16 @@ body {
   max-width: 50rem;
   margin-left: 2rem;
 }
-#container main form .user-input {
+#container main form .form-ctrl {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 0.3rem;
+}
+#container main form .form-ctrl .user-input {
   width: 40rem;
   min-width: 90%;
   height: 3rem;
@@ -39,17 +48,23 @@ body {
           padding-inline-start: 1.5rem;
   -webkit-padding-end: 1.5rem;
           padding-inline-end: 1.5rem;
-  border: 2px solid black;
-  border-radius: calc(0.2 * var(--inline-height));
+  margin: 0.5rem auto;
+  border: 0;
 }
-#container main form .convert-btn {
+#container main form .form-ctrl .convert-btn {
   height: 3rem;
-  border-radius: 50%;
-  background-color: white;
+  background-color: #aaffaa;
   transition: background-color ease 0.3s;
+  border: 0;
+  padding: 0.1rem;
+  margin: 0.5rem auto;
+  border: 0;
+  border-radius: 0.2rem;
 }
-#container main form .convert-btn:hover {
-  background-color: lightgray;
+#container main form .form-ctrl .convert-btn:hover {
+  background-color: #448844;
+  color: white;
+  font-weight: bold;
   cursor: pointer;
 }
 #container main a {
