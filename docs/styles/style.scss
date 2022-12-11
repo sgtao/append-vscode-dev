@@ -22,11 +22,11 @@ body {
         margin-top: 2rem;
         margin-bottom: 2rem;
         border-radius: 0.5rem;
-        form {
+        .user-form {
             min-width: 90%;
             max-width: 50rem;
             margin-left: 2rem;
-            .form-ctrl {
+            .user-form-ctrl {
                 display: flex;
                 flex-direction: row;
                 flex-wrap: nowrap;

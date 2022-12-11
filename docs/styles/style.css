@@ -25,12 +25,12 @@ body {
   margin-bottom: 2rem;
   border-radius: 0.5rem;
 }
-#container main form {
+#container main .user-form {
   min-width: 90%;
   max-width: 50rem;
   margin-left: 2rem;
 }
-#container main form .form-ctrl {
+#container main .user-form .user-form-ctrl {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -39,7 +39,7 @@ body {
   border: 2px solid black;
   border-radius: 0.3rem;
 }
-#container main form .form-ctrl .user-input {
+#container main .user-form .user-form-ctrl .user-input {
   width: 40rem;
   min-width: 90%;
   height: 3rem;
@@ -51,18 +51,18 @@ body {
   margin: 0.5rem auto;
   border: 0;
 }
-#container main form .form-ctrl .delete-btn {
+#container main .user-form .user-form-ctrl .delete-btn {
   background-color: inherit;
   color: gray;
   font-size: 2rem;
   border: 0;
 }
-#container main form .form-ctrl .delete-btn:hover {
+#container main .user-form .user-form-ctrl .delete-btn:hover {
   color: rgb(80, 80, 80);
   font-weight: bold;
   cursor: pointer;
 }
-#container main form .form-ctrl .convert-btn {
+#container main .user-form .user-form-ctrl .convert-btn {
   height: 3rem;
   background-color: #aaffaa;
   transition: background-color ease 0.3s;
@@ -72,7 +72,7 @@ body {
   border: 0;
   border-radius: 0.2rem;
 }
-#container main form .form-ctrl .convert-btn:hover {
+#container main .user-form .user-form-ctrl .convert-btn:hover {
   background-color: #448844;
   color: white;
   font-weight: bold;
