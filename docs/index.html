@@ -5,13 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>convert-URL-to-vscode-dev</title>
+    <!-- show loader by pace.js (https://codebyzach.github.io/pace/) -->
+    <!-- refer from https://gimmicklog.com/javascript/614/ -->
+    <link rel="stylesheet" href="styles/vendors/loading-bar.css">
+    <script src="scripts/vendors/pace.min.js"></script>
+    <!-- end of loader -->
     <link rel="stylesheet" href="styles/vendors/bootstrap-reboot.min.css">
-    <link rel="stylesheet" href="styles/style.css">
+    <link defer  rel="stylesheet" href="styles/style.css">
     <script defer src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script defer src="scripts/convertToVScodeDev.js"></script>
 </head>
 <body>
-<div id="container">
+<div id="container" class="container">
     <header>
         <h1>convert-URL-to-vscode-dev</h1>
         <p>
