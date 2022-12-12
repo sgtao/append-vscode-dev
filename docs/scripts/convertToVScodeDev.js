@@ -8,7 +8,7 @@ const convertToVScodeDev = (() => {
         name : "vscode-dev",
         url  : "https://vscode.dev",
         path : "/",
-        label: "Visual Studio Code",
+        label: "VSCode.dev",
     }
     const githubInfo = {
         user: '',
@@ -117,6 +117,13 @@ const convertToVScodeDev = (() => {
         resultTextArea.innerHTML += `<p class="show-vscode-devr">URL : <a href="${vscodeURL}" target="_blank" class="tooltip">
                                     <span class="tooltip-text">${vscodeURL}</span>
                                     ${devItem.label}</a></p>`;
+        // add github dev link
+        let githubDevURL = 'https://github.dev' + '/' +
+                        githubInfo.user + '/' +
+                        githubInfo.project + '/';
+                        resultTextArea.innerHTML += `<p class="show-vscode-devr">URL : <a href="${githubDevURL}" target="_blank" class="tooltip">
+                        <span class="tooltip-text">${githubDevURL}</span>
+                        github.dev</a></p>`;
     };
     return {
         deleteUserInput, convert,
