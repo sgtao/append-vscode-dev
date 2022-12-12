@@ -110,9 +110,11 @@ const convertToVScodeDev = (() => {
                         githubInfo.hostname + '/' +
                         githubInfo.user + '/' +
                         githubInfo.project + '/';
-        resultTextArea.innerHTML += `<p>user : ${githubInfo.user}(${githubInfo.name}, ${githubInfo.email})</p>`;
-        resultTextArea.innerHTML += `<p>project : ${githubInfo.project}</p>`;
-        resultTextArea.innerHTML += `<p>URL : <a href="${vscodeURL}" target="_blank" class="tooltip">
+        resultTextArea.innerHTML += `<p class="show-user"> 
+            user <img src="${githubInfo.avatar_url}" alt="user image" class="show-user-image"> : 
+            ${githubInfo.user}(${githubInfo.name}, ${githubInfo.email})</p>`;
+        resultTextArea.innerHTML += `<p class="show-project">project : ${githubInfo.project}</p>`;
+        resultTextArea.innerHTML += `<p class="show-vscode-devr">URL : <a href="${vscodeURL}" target="_blank" class="tooltip">
                                     <span class="tooltip-text">${vscodeURL}</span>
                                     ${devItem.label}</a></p>`;
     };

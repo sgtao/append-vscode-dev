@@ -119,6 +119,12 @@ body {
             min-width: 90%;
             max-width: 50rem;
             margin-left: 2rem;
+            .show-user-image {
+                height: 2rem;
+                width: 2rem;
+                border: 0;
+                border-radius: 50%;
+            }
         }
     }
     footer {

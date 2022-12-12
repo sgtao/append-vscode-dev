@@ -131,6 +131,12 @@ body {
   max-width: 50rem;
   margin-left: 2rem;
 }
+#container main .result-textarea .show-user-image {
+  height: 2rem;
+  width: 2rem;
+  border: 0;
+  border-radius: 50%;
+}
 #container footer {
   border-top: 1px solid gray;
 }
