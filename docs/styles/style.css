@@ -28,7 +28,7 @@ body {
 #container main .user-form {
   min-width: 90%;
   max-width: 50rem;
-  margin-left: 2rem;
+  margin: 0 auto;
 }
 #container main .user-form .user-form-ctrl {
   display: flex;
