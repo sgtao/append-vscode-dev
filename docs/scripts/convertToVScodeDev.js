@@ -26,6 +26,9 @@ const convertToVScodeDev = (() => {
     const deleteUserInput = () => {
         inputUserValue.value = "";
     }
+    const showTextMessage = (message) => {
+        resultTextArea.textContent = message;
+    };
     const convert = async () => {
         console.log(inputUserValue.value);
         await init_githubInfo();
@@ -41,18 +44,24 @@ const convertToVScodeDev = (() => {
         if (inputProjectURL.origin === 'https://github.com') {
             devItem.path = inputProjectURL.pathname;
             console.log(devItem);
-            await getGithubInfo(inputUserValue.value);
-            {
+            let success = await getGithubInfo(inputUserValue.value);
+            if (success) {
                 let keys = Object.keys(githubInfo)
                 keys.forEach((key) => console.log(`${key} : ${githubInfo[key]}`));
             }
         } else {
-            resultTextArea.textContent = "githubのレポジトリURLを入力してください";
+            showTextMessage("githubのレポジトリURLを入力してください");
         }
     };
     const getGithubInfo = async (inputUserValue) => {
         console.log('inputUserValue: ' + inputUserValue);
-        inputUserValue.split('/').map((path, index)=>{
+        let inputUserArray = inputUserValue.split('/');
+        console.log(inputUserArray);
+        if (inputUserArray.length < 5 || inputUserArray[4].length === 0) {
+            showTextMessage("githubのレポジトリURLを入力してください（パスの長さが足りません）");
+            return false;
+        }
+        inputUserArray.map((path, index)=>{
             switch(index) {
                 case 2:
                     console.log(path);
@@ -72,7 +81,6 @@ const convertToVScodeDev = (() => {
         resultTextArea.innerHTML = '';
         // GETリクエスト（通信）
         await axios.get(githubaUserURL)
-
             // thenで成功した場合の処理
             .then((res) => {
                 console.dir(res.data);
@@ -91,7 +99,7 @@ const convertToVScodeDev = (() => {
                     console.log(error.response.status);
                     console.log(error.response.headers);
                     if (error.response.status === 404) {
-                        resultTextArea.textContent = "該当するユーザーはいません";
+                        showTextMessage("該当するユーザーはいません");
                     }
                 } else if (error.request) {
                     // The request was made but no response was received
@@ -103,7 +111,9 @@ const convertToVScodeDev = (() => {
                     console.log('Error', error.message);
                 }
                 console.log(error.config);
+                return false;
             });
+        return true;
     };
     const insertResultTextArea = (devItem) => {
         let vscodeURL = devItem.url + '/' +
